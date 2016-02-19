@@ -1,0 +1,71 @@
+$panel-hor-padding: 15px;
+$panelNav-width: 20px;
+
+.panels {
+  list-style: none;
+  width: 50vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@mixin mx-panel( $color ) {
+  border-color: $color;
+  h2 {
+    background-color: $color;
+  }
+}
+
+.panel {
+  @include mx-panel( $background--dark );
+  position: relative;
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 0 $panel-hor-padding 1em;
+  margin: 0 0 .5em;
+  display: none;
+  &.active {
+    display: block;
+  }
+  h2 {
+    margin: 0 (-$panel-hor-padding);
+    padding: .25em $panelNav-width;;
+    color: #FFFFFF;
+    text-align: center;
+  }
+}
+
+.panel--1 {
+  @include mx-panel( $red );
+}
+
+.panel--2 {
+  @include mx-panel( $green );
+}
+
+.panel--3 {
+  @include mx-panel( $blue );
+}
+
+.panelNav {
+  position: absolute;
+  top: 0;
+  width: $panelNav-width;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: $panelNav-width;
+  line-height: 28px;
+  &.panelNav--back {
+    left: 0;
+  }
+  &.panelNav--forward {
+    right: 0;
+  }
+  &:disabled {
+    display: none;
+  }
+}
+
+.radioGroup {
+  display: block;
+}
